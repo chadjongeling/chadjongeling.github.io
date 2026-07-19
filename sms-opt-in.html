@@ -56,13 +56,16 @@
       <div class="consent">
         <input type="checkbox" id="agree" required>
         <label for="agree" style="font-weight:normal; margin:0;">
-          I authorize CBS Re-Creations LLC to send automated SMS
-          notifications about rent payment status and property operations
-          to the mobile number provided above. Message frequency varies
-          (approximately 10&ndash;30 messages/month). Message and data
-          rates may apply. Reply STOP to opt out at any time, or HELP for
-          help. Consent is not a condition of any purchase, employment,
-          or tenancy. See our <a href="/sms-policy.html">SMS Policy</a>.
+          <strong>I agree to receive automated SMS text messages from CBS
+          Re-Creations LLC</strong> at the mobile number provided above,
+          sent from (833)&nbsp;892-9123. The messages I will receive are:
+          rent payment confirmations, deposit notices, monthly lease
+          status summaries, and late-rent alerts. Message frequency
+          varies (approximately 10&ndash;30 messages/month). Message and
+          data rates may apply. Reply STOP to opt out at any time, or
+          HELP for help. Consent is not a condition of any purchase,
+          employment, or tenancy. See our
+          <a href="/sms-policy.html">SMS Policy</a>.
         </label>
       </div>
       <button type="submit">Submit consent</button>
@@ -88,11 +91,13 @@
         "Name: " + name + "\n" +
         "Mobile number: " + phone + "\n" +
         "Date: " + new Date().toISOString().slice(0, 10) + "\n\n" +
-        "I authorize CBS Re-Creations LLC to send automated SMS " +
-        "notifications about rent payment status and property operations " +
-        "to the mobile number above. I understand message frequency " +
-        "varies (approx. 10-30/month), message and data rates may apply, " +
-        "and I can reply STOP at any time to opt out.";
+        "I agree to receive automated SMS text messages from " +
+        "CBS Re-Creations LLC at the mobile number above, sent from " +
+        "(833) 892-9123: rent payment confirmations, deposit notices, " +
+        "monthly lease status summaries, and late-rent alerts. I " +
+        "understand message frequency varies (approx. 10-30/month), " +
+        "message and data rates may apply, and I can reply STOP at any " +
+        "time to opt out.";
       location.href = "mailto:cbsken@yahoo.com" +
         "?subject=" + encodeURIComponent("SMS Consent - " + name) +
         "&body=" + encodeURIComponent(body);
