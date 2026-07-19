@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SMS Notification Opt-In — CBS Re-Creations LLC</title>
+  <meta name="description" content="Opt-in form for CBS Re-Creations LLC team SMS notifications.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Georgia, "Times New Roman", serif; color: #2b2b2b; background: #faf8f5; line-height: 1.7; }
+    header { background: #1f3a2e; color: #f3efe8; padding: 40px 24px; text-align: center; }
+    header h1 { font-size: 1.6rem; }
+    nav { margin-top: 14px; font-size: 0.95rem; }
+    nav a { color: #f3efe8; margin: 0 10px; }
+    main { max-width: 640px; margin: 0 auto; padding: 40px 24px 64px; }
+    h2 { font-size: 1.1rem; color: #1f3a2e; border-bottom: 2px solid #d9d2c4; padding-bottom: 6px; margin-bottom: 12px; }
+    a { color: #1f3a2e; }
+    label { display: block; margin: 16px 0 4px; font-weight: bold; }
+    input[type=text], input[type=tel] {
+      width: 100%; padding: 10px; font-size: 1rem; font-family: inherit;
+      border: 1px solid #b9b2a3; border-radius: 6px; background: #fff;
+    }
+    .consent { display: flex; gap: 10px; align-items: flex-start; margin: 20px 0; }
+    .consent input { margin-top: 6px; }
+    button {
+      background: #1f3a2e; color: #f3efe8; border: 0; border-radius: 6px;
+      padding: 12px 24px; font-size: 1rem; font-family: inherit; cursor: pointer;
+    }
+    .note { font-size: 0.9rem; color: #6d6759; margin-top: 14px; }
+    footer { text-align: center; padding: 24px; font-size: 0.85rem; color: #8a8578; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SMS Notification Opt-In</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/sms-policy.html">SMS Policy</a>
+      <a href="/sms-opt-in.html">SMS Opt-In</a>
+      <a href="/sms-consent.html">Consent Info</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Sign up for team rent notifications</h2>
+    <p>
+      This form is for CBS Re-Creations LLC management team members to
+      opt in to automated SMS notifications about rent payment status.
+      Submitting the form sends your consent record by email to the
+      program administrator, who keeps it on file.
+    </p>
+    <form id="optin">
+      <label for="name">Full name</label>
+      <input type="text" id="name" required>
+      <label for="phone">Mobile number</label>
+      <input type="tel" id="phone" placeholder="(405) 555-0123" required>
+      <div class="consent">
+        <input type="checkbox" id="agree" required>
+        <label for="agree" style="font-weight:normal; margin:0;">
+          I authorize CBS Re-Creations LLC to send automated SMS
+          notifications about rent payment status and property operations
+          to the mobile number provided above. Message frequency varies
+          (approximately 10&ndash;30 messages/month). Message and data
+          rates may apply. Reply STOP to opt out at any time, or HELP for
+          help. Consent is not a condition of any purchase, employment,
+          or tenancy. See our <a href="/sms-policy.html">SMS Policy</a>.
+        </label>
+      </div>
+      <button type="submit">Submit consent</button>
+      <p class="note">
+        Submitting opens an email to
+        <a href="mailto:cbsken@yahoo.com">cbsken@yahoo.com</a> containing
+        your consent statement &mdash; press send in your email app to
+        complete the record.
+      </p>
+    </form>
+  </main>
+  <footer>
+    &copy; CBS Re-Creations LLC &middot; Oklahoma City, OK &middot;
+    <a href="mailto:cbsken@yahoo.com">cbsken@yahoo.com</a>
+  </footer>
+  <script>
+    document.getElementById("optin").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = document.getElementById("name").value.trim();
+      var phone = document.getElementById("phone").value.trim();
+      var body =
+        "SMS consent record - CBS Re-Creations LLC\n\n" +
+        "Name: " + name + "\n" +
+        "Mobile number: " + phone + "\n" +
+        "Date: " + new Date().toISOString().slice(0, 10) + "\n\n" +
+        "I authorize CBS Re-Creations LLC to send automated SMS " +
+        "notifications about rent payment status and property operations " +
+        "to the mobile number above. I understand message frequency " +
+        "varies (approx. 10-30/month), message and data rates may apply, " +
+        "and I can reply STOP at any time to opt out.";
+      location.href = "mailto:cbsken@yahoo.com" +
+        "?subject=" + encodeURIComponent("SMS Consent - " + name) +
+        "&body=" + encodeURIComponent(body);
+    });
+  </script>
+</body>
+</html>
